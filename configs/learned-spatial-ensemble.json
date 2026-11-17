@@ -1,0 +1,42 @@
+{
+  "configuration": {
+    "ball_speed_limit_mps": 45.0,
+    "bootstrap_dead_weight": 0.65,
+    "bootstrap_gap_seconds": 1.5,
+    "bootstrap_weight": 1.0,
+    "boundary_margin_m": 0.75,
+    "control_margin_m": 1.5,
+    "control_radius_m": 2.5,
+    "control_weight": 2.0,
+    "fps": 25.0,
+    "interpolation_seconds": 0.4,
+    "mature_frames": 25,
+    "outside_weight": 2.0,
+    "short_segment_cost": 10.0,
+    "tag_weight": 0.7,
+    "transition_cost": 5.0
+  },
+  "dataset": "https://doi.org/10.6084/m9.figshare.28196177",
+  "development_matches": [
+    "J03WMX",
+    "J03WN1",
+    "J03WOH",
+    "J03WOY",
+    "J03WPY",
+    "J03WQQ"
+  ],
+  "held_out_match": "J03WR9",
+  "license": "CC BY 4.0",
+  "method": "learned",
+  "models": [
+    {
+      "model_dir": "configs/models/spatial_lgb31",
+      "weight": 0.5
+    },
+    {
+      "model_dir": "configs/models/spatial_lgb63",
+      "weight": 0.5
+    }
+  ],
+  "selection_rule": "Equal-weight spatial LightGBM ensemble on clean, masked, and long scenarios across 6 development matches, confirmed on independent held-out match J03WR9"
+}

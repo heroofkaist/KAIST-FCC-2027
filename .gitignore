@@ -1,0 +1,49 @@
+# ---------------------------------------------------------------------------------------------
+# More Than A Hack 2027 - KAIST FCC Possession AI Submission
+# Gated competition data, ground truth, and temporary artifacts must never enter git.
+# ---------------------------------------------------------------------------------------------
+
+# -- private ground truth ----------------------------------------------------------------------
+*_possession_gt.csv
+*_possession_gt_meta.json
+*_possession_gt_reference.csv
+possession_by_frame.pkl
+
+# -- submissions & local outputs ---------------------------------------------------------------
+evaluation/results/**/*.csv
+!evaluation/results/baseline_*.csv
+evaluation/reports/
+evaluation/scoreboard.csv
+artifacts/
+
+# Protect any accidental CSV leaks
+*.csv
+!evaluation/results/baseline_*.csv
+!evaluation/gt/*.csv
+
+# -- gated data --------------------------------------------------------------------------------
+data/*
+!data/README.md
+
+*.mp4
+*.gzip
+*.pl3container
+*.zip
+*.zip.part*
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+
+# -- editors, environments, caches -------------------------------------------------------------
+.idea/
+.vscode/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.DS_Store
+.worktrees/
+organizers/

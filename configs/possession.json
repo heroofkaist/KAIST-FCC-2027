@@ -1,0 +1,17 @@
+{
+  "fps": 25.0,
+  "control_radius_m": 2.5,
+  "control_margin_m": 1.5,
+  "control_weight": 2.0,
+  "ball_speed_limit_mps": 45.0,
+  "interpolation_seconds": 0.4,
+  "boundary_margin_m": 0.75,
+  "outside_weight": 2.0,
+  "tag_weight": 0.7,
+  "bootstrap_weight": 1.0,
+  "bootstrap_dead_weight": 0.65,
+  "bootstrap_gap_seconds": 1.5,
+  "transition_cost": 12.0,
+  "short_segment_cost": 6.0,
+  "mature_frames": 25
+}

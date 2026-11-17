@@ -1,0 +1,12 @@
+# Pinned runtime dependencies for full KAIST-FCC spatial-temporal inference and evaluation
+# Tested on Python 3.14.7 / macOS arm64 / Linux x86_64
+numpy==2.5.4
+pandas==3.1.1
+lightgbm==4.7.0
+scipy==1.18.1
+numba==0.68.1
+catboost==1.2.10
+xgboost==3.4.1
+torch==2.15.0
+python-dateutil==4.0.0
+tzdata==2026.6

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "seed": 20261109,
+  "model_fps": 5,
+  "sportec_development": ["J03WMX", "J03WN1", "J03WOH", "J03WOY", "J03WPY", "J03WQQ"],
+  "sportec_validation_folds": [["J03WMX", "J03WOH"], ["J03WN1", "J03WOY"], ["J03WPY", "J03WQQ"]],
+  "sportec_test": ["J03WR9"],
+  "skillcorner_test": ["2013725", "2015213", "2016236", "2017461"],
+  "selection_scenarios": ["clean", "masked", "long"],
+  "selection_rule": "equal-weight mean spellF1 across development matches and scenarios",
+  "mask_short": {"block_seconds": 1, "probability": 0.35},
+  "mask_long": {"block_min_seconds": 2, "block_max_seconds": 8, "probability": 0.45},
+  "predeclared_family_budget": {"lightgbm": 3, "catboost": 2, "xgboost": 2, "tcn": 2, "bilstm": 1, "transformer": 1},
+  "decoder_transition_seconds": [0, 0.4, 1.2, 2.4],
+  "decoder_short_segment_cost": [0, 2],
+  "new_test_policy": "weights and selection frozen before test; no selection on test scores",
+  "competition_gt_policy": "never read in research commands"
+}

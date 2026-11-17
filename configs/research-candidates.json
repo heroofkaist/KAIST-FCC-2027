@@ -1,0 +1,22 @@
+{
+  "raw": {"kind": "smooth", "seconds": 0},
+  "smooth_0.4s": {"kind": "smooth", "seconds": 0.4},
+  "smooth_1s": {"kind": "smooth", "seconds": 1},
+  "smooth_2s": {"kind": "smooth", "seconds": 2},
+  "smooth_5s": {"kind": "smooth", "seconds": 5},
+  "linear": {"kind": "linear", "configuration": {"regularization": 0.001, "steps": 300}},
+  "lgb15": {"kind": "lightgbm", "configuration": {"leaves": 15, "rounds": 200, "min_leaf": 300}},
+  "lgb31": {"kind": "lightgbm", "configuration": {"leaves": 31, "rounds": 350, "min_leaf": 200}},
+  "lgb63": {"kind": "lightgbm", "configuration": {"leaves": 63, "rounds": 350, "min_leaf": 300, "l2": 10}},
+  "cat6": {"kind": "catboost", "configuration": {"depth": 6, "rounds": 350}},
+  "cat8": {"kind": "catboost", "configuration": {"depth": 8, "rounds": 350}},
+  "xgb4": {"kind": "xgboost", "configuration": {"depth": 4, "rounds": 300}},
+  "xgb6": {"kind": "xgboost", "configuration": {"depth": 6, "rounds": 300}},
+  "tcn32": {"kind": "tcn", "configuration": {"channels": 32, "layers": 5, "epochs": 8, "steps_per_epoch": 64, "batch_size": 8}},
+  "tcn48": {"kind": "tcn", "configuration": {"channels": 48, "layers": 6, "epochs": 10, "steps_per_epoch": 64, "batch_size": 8}},
+  "bilstm32": {"kind": "bilstm", "configuration": {"channels": 32, "layers": 1, "epochs": 8, "steps_per_epoch": 64, "batch_size": 8}},
+  "attention32": {"kind": "transformer", "configuration": {"channels": 32, "layers": 1, "heads": 4, "epochs": 8, "steps_per_epoch": 64, "batch_size": 8}},
+  "spatial_lgb31": {"kind": "lightgbm", "features": "spatial", "configuration": {"leaves": 31, "rounds": 350, "min_leaf": 200}},
+  "weak_lgb31": {"kind": "lightgbm", "weak_weight": 0.05, "configuration": {"leaves": 31, "rounds": 350, "min_leaf": 200}},
+  "dropout_lgb31": {"kind": "lightgbm", "skill_dropout": true, "configuration": {"leaves": 31, "rounds": 350, "min_leaf": 200}}
+}
