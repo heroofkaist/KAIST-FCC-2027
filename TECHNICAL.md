@@ -15,15 +15,15 @@ The approach couples:
 2. **A dual gradient-boosted spatial ensemble** (`spatial_lgb31` + `spatial_lgb63`) trained strictly on external professional matches (DFL/Sportec, CC BY 4.0) with exact team permutation invariance.
 3. **An age-expanded temporal Viterbi dynamic programming decoder** that integrates possession duration dynamics and soft Smart Tagging phase transitions.
 
-On external Group Cross-Validation across 6 development matches under simulated tracking dropouts, our spatial model achieves a mean `spellF1` of **0.5199** (vs 0.3486 baseline, +49.1% relative improvement). On an untouched held-out match (`J03WR9`), it achieves `spellF1 = 0.5656` (+63.0% relative improvement), with dead-ball detection accuracy reaching 96.0%.
+On external Group Cross-Validation across 6 development matches under simulated tracking dropouts, our spatial model achieves a mean `spellF1` of **0.5199** (vs 0.3486 baseline, +49.1% relative improvement). On an untouched held-out match (`J03WR9`), it achieves `spellF1 = 0.5656` (+63.0% relative improvement), with mean dead-ball F1 reaching 0.9604.
 
 ---
 
 ## 2. Zero-Leakage & Regulatory Compliance
 
-- **No Human Annotations on BAR–ATH:** Strictly zero human labels from the competition match were used for training, calibration, validation, or hyperparameter selection.
-- **External Data Provenance:** All supervised training was conducted on 7 matches of the open DFL/Sportec tracking dataset (Bassek et al., *Scientific Data* 2025, CC BY 4.0, Figshare doi:10.6084/m9.figshare.28196177).
-- **Public 5-Minute Ground Truth:** The public ground truth window (`evaluation/gt/BAR-ATH_possession_gt_public.csv`, frames 7,000–14,499) was used exclusively as a post-hoc sanity check for pipeline correctness and format validation, never for model training or tuning.
+- **No Human Annotations on BAR–ATH:** Strictly zero human labels from the competition match were used for training, calibration, model selection, or hyperparameter optimization.
+- **External Data Provenance:** The open DFL/Sportec corpus contains 7 matches; 6 development matches were used for supervised training, while J03WR9 was held out for evaluation (Bassek et al., *Scientific Data* 2025, CC BY 4.0, Figshare doi:10.6084/m9.figshare.28196177).
+- **Public 5-Minute Ground Truth:** The public ground truth window (`evaluation/gt/BAR-ATH_possession_gt_public.csv`, frames 11,185–18,684) was used exclusively as a post-hoc sanity check for pipeline correctness and format validation, never for model training or tuning.
 - **Reproducibility:** The pipeline is 100% deterministic and byte-for-byte reproducible.
 
 ---
@@ -73,7 +73,7 @@ On external Group Cross-Validation across 6 development matches under simulated 
    - Ball detection validity indicator.
    - Normalized pitch coordinates: $|x - L/2| / (L/2)$ and $|y - W/2| / (W/2)$.
    - Boundary exit flag (ball outside $[0, L] \times [0, W]$).
-   - Ball speed (m/s) normalized to 45 m/s maximum.
+   - Ball speed magnitude (m/s) normalized to a 45 m/s maximum.
    - Ball acceleration magnitude.
    - Ball velocity validity flag.
    - Ball height validity and normalized vertical position.
