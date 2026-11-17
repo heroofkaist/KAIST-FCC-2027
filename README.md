@@ -18,7 +18,7 @@ Each frame $t \in [0, 199318]$ must be labeled with one of four classes:
 - **`D`**: Dead ball / stoppage (ball out of play, foul, referee whistle, celebration).
 - **`X`**: Abstain / uninformative (outside graded match halves or during extreme occlusion).
 
-The primary ranking metric is **`spellF1`**: the mean F1 score across possession spells matched under temporal Intersection over Union (IoU) thresholds $\tau \in \{0.3, 0.4, 0.5, 0.6, 0.7\}$, macro-averaged across $H$, $A$, and $D$. The secondary tie-breaking metric is **`macroF1`**.
+The primary ranking metric is **`spellF1`**: the mean F1 score of one-to-one matched Home (`H`) and Away (`A`) possession intervals at temporal Intersection over Union (IoU) thresholds $\tau \in \{0.3, 0.4, 0.5, 0.6, 0.7\}$. Dead-ball (`D`) intervals are stoppages, not possession spells. The secondary tie-breaking metric is **`macroF1`**.
 
 ---
 
@@ -63,7 +63,7 @@ Full Tactical ATD Tracking (199,319 frames)
 ## 3. Strict Compliance with Competition Rules
 
 - **Zero Ground Truth Leakage:** Strictly **NO** human annotations from the provided BAR–ATH competition match were used for training, feature selection, validation, or hyperparameter tuning.
-- **Permitted External Data:** All models were trained on 7 matches from the open-source **DFL/Sportec dataset** (Bassek et al., *Scientific Data* 2025, CC BY 4.0, Figshare [doi:10.6084/m9.figshare.28196177](https://doi.org/10.6084/m9.figshare.28196177)).
+- **Permitted External Data:** The external corpus contains 7 matches from the open-access **DFL/Sportec dataset**, with 6 used for development and model training and 1 held out for evaluation (Bassek et al., *Scientific Data* 2025, CC BY 4.0, Figshare [doi:10.6084/m9.figshare.28196177](https://doi.org/10.6084/m9.figshare.28196177)).
 - **Public 5-Minute Window:** The 5-minute public ground truth snippet (`evaluation/gt/BAR-ATH_possession_gt_public.csv`) was used solely as a one-time sanity check for coordinate alignment and output format validation.
 - **Rule Verification:** All external training code, configurations, model weights, and inference pipelines are open, fully inspectable, and reproducible by the organizers.
 
